@@ -101,8 +101,8 @@ public class MemberController {
 
     @PutMapping("/mem/{username}")
     public ResponseEntity update1(@PathVariable("username") String username,
-                                  @RequestParam("file") MultipartFile file,
-                                  @RequestBody MemberDTO dto) {
+                                  @RequestPart(value = "file", required = false) MultipartFile file,
+                                  @ModelAttribute MemberDTO dto) {
         log.debug("id {}", username);
         log.debug("dto {}", dto);
 

@@ -44,6 +44,7 @@ public class WebSecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/mem").permitAll()
                         .requestMatchers(HttpMethod.GET, "/mem/{fileName}/image").permitAll()
                         .requestMatchers(HttpMethod.POST, "/mem").permitAll()
+                        .requestMatchers(HttpMethod.PUT, "/mem/{username}").authenticated()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
